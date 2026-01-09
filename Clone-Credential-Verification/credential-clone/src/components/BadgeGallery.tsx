@@ -20,7 +20,7 @@ export default function BadgeGallery() {
       <div className="flex-1 flex justify-center order-1 lg:order-2">
         <div className="relative">
           <img
-            src="/oscp-badge.webp"
+            src="/obdafoef834639f/oscp-badge.webp"
             alt="OSCP Badge"
             className="w-80 h-80 lg:w-96 lg:h-96 object-contain"
           />
