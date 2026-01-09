@@ -32,6 +32,7 @@ const nextConfig = {
       },
     ],
   },
+  basePath: '/obdafoef834639f', // ← Esta es la línea nueva
 };
 
 module.exports = nextConfig;
