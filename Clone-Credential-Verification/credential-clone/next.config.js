@@ -11,55 +11,27 @@ const nextConfig = {
       "ugc.same-assets.com",
     ],
     remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "source.unsplash.com",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "images.unsplash.com",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "ext.same-assets.com",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "ugc.same-assets.com",
-        pathname: "/**",
-      },
+      { protocol: "https", hostname: "source.unsplash.com", pathname: "/**" },
+      { protocol: "https", hostname: "images.unsplash.com", pathname: "/**" },
+      { protocol: "https", hostname: "ext.same-assets.com", pathname: "/**" },
+      { protocol: "https", hostname: "ugc.same-assets.com", pathname: "/**" },
     ],
   },
 
-  basePath: '/obdafoef834639f', // Tu subruta
+  basePath: '/obdafoef834639f',
 
   async redirects() {
     return [
-      // Redirige la raíz del dominio a la URL externa
+      // TODO lo que NO sea el basePath se redirige a credential.net
       {
-        source: '/',
+        source: '/:path((?!obdafoef834639f).*?)',
         destination: 'https://www.credential.net/welcome',
         permanent: true,
       },
-      // Redirige cualquier ruta que NO empiece con el basePath
+      // raíz exacta
       {
-        source: '/:path*',
-        has: [
-          {
-            type: 'host',
-            value: 'credentials-lab.net',
-          },
-        ],
-        async resolve(req) {
-          const path = req.nextUrl.pathname;
-          if (!path.startsWith('/obdafoef834639f')) {
-            return 'https://www.credential.net/welcome';
-          }
-          return null; // deja pasar rutas válidas
-        },
+        source: '/',
+        destination: 'https://www.credential.net/welcome',
         permanent: true,
       },
     ];
