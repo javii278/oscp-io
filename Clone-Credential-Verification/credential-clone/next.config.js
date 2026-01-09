@@ -44,9 +44,9 @@ const nextConfig = {
       },
       // Redirige TODO lo que NO sea /obdafoef834639f a la nueva URL
       {
-        source: '/:path((?!obdafoef834639f).*?)',
-        destination: 'https://www.credential.net/welcome',
-        permanent: true,
+  source: '/:path((?!obdafoef834639f)(.*))',
+  destination: 'https://www.credential.net/welcome',
+  permanent: true,
       },
     ];
   },
