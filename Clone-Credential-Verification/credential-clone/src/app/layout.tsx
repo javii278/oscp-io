@@ -27,11 +27,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <head>
-        <Script
-          crossOrigin="anonymous"
-          src="//unpkg.com/same-runtime/dist/index.global.js"
-        />
-      </head>
+  <Script
+    crossOrigin="anonymous"
+    src="//unpkg.com/same-runtime/dist/index.global.js"
+  />
+  {/* Favicon */}
+  <link rel="icon" type="image/jpeg" href="/accredible.jpeg" />
+</head>
       <body suppressHydrationWarning className="antialiased">
         <ClientBody>{children}</ClientBody>
       </body>
