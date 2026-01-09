@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   allowedDevOrigins: ["*.preview.same-app.com"],
+
   images: {
     unoptimized: true,
     domains: [
@@ -32,24 +33,37 @@ const nextConfig = {
       },
     ],
   },
-  basePath: '/obdafoef834639f', // tu subruta ya configurada
+
+  basePath: '/obdafoef834639f', // Tu subruta
 
   async redirects() {
-  return [
-    // Redirige la raíz
-    {
-      source: '/',
-      destination: 'https://www.credential.net/welcome',
-      permanent: true,
-    },
-    // Redirige todo lo que NO sea /obdafoef834639f o subrutas
-    {
-      source: '/((?!obdafoef834639f).*)',
-      destination: 'https://www.credential.net/welcome',
-      permanent: true,
-    },
-  ];
-}
+    return [
+      // Redirige la raíz del dominio a la URL externa
+      {
+        source: '/',
+        destination: 'https://www.credential.net/welcome',
+        permanent: true,
+      },
+      // Redirige cualquier ruta que NO empiece con el basePath
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'credentials-lab.net',
+          },
+        ],
+        async resolve(req) {
+          const path = req.nextUrl.pathname;
+          if (!path.startsWith('/obdafoef834639f')) {
+            return 'https://www.credential.net/welcome';
+          }
+          return null; // deja pasar rutas válidas
+        },
+        permanent: true,
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
