@@ -8,7 +8,7 @@ export default function BadgeGallery() {
         <div className="p-2 rounded-lg border-2 border-[#c75410] bg-white shadow-md">
           <div className="w-20 h-20 flex items-center justify-center">
             <img
-              src="/oscp-badge.webp"
+              src="/obdafoef834639f/oscp-badge.webp"
               alt="OSCP Badge"
               className="w-16 h-16 object-contain"
             />
