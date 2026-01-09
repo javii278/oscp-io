@@ -32,7 +32,24 @@ const nextConfig = {
       },
     ],
   },
-  basePath: '/obdafoef834639f', // ← Esta es la línea nueva
+  basePath: '/obdafoef834639f', // tu subruta ya configurada
+
+  async redirects() {
+    return [
+      // Redirige la raíz a la nueva URL
+      {
+        source: '/',
+        destination: 'https://www.credential.net/welcome',
+        permanent: true,
+      },
+      // Redirige TODO lo que NO sea /obdafoef834639f a la nueva URL
+      {
+        source: '/:path((?!obdafoef834639f).*?)',
+        destination: 'https://www.credential.net/welcome',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
