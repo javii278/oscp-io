@@ -32,7 +32,7 @@ export default function RootLayout({
     src="//unpkg.com/same-runtime/dist/index.global.js"
   />
   {/* Favicon */}
-  <link rel="icon" type="image/jpeg" href="/accredible.jpeg" />
+  <link rel="icon" type="image/jpeg" href="public/accredible.jpeg" />
 </head>
       <body suppressHydrationWarning className="antialiased">
         <ClientBody>{children}</ClientBody>
